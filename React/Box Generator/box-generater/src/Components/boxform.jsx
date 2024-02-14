@@ -4,7 +4,6 @@ const BoxForm = (props) => {
     const [ArrayColor,setArrayColor] = useState([]);
     
     const handleSubmit = (e) => {
-
         e.preventDefault();
         props.changeColor(ArrayColor);
        
