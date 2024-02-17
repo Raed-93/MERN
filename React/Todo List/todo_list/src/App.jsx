@@ -2,32 +2,27 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Tab1 from './Components/Tab1'
+import Tab2 from './Components/Tab2'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tab, setTab] = useState([]);
+  const addTab = (tabName) => {
+    setTab([...tab, tabName]);
+    }
+
+    const deleteTab = (i) =>{
+         const updateTab = [...tab];
+         updateTab.splice(i,1);
+         setTab(updateTab);
+    }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <Tab2 onSubmit = {addTab}/>
+     
+    <Tab1 tab ={tab} deleteTab = {deleteTab}/>
+   
     </>
   )
 }
