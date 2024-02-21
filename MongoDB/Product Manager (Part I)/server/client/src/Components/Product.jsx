@@ -7,9 +7,7 @@ export default () => {
     const [desc, setDesc] = useState("");
     
     const onSubmitHandler = e => {
-     
         e.preventDefault();
-        
         axios.post('http://localhost:8000/api/product', {
             title,
             price,
