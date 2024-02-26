@@ -4,26 +4,26 @@ import Product from '../Components/Product';
 import axios from 'axios';
     
 const Main = (props) => {
-    const [product, setProduct] = useState([]);
+    const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
     
     useEffect(()=>{
         axios.get('http://localhost:8000/api/products')
             .then(res=>{
-                setProduct(res.data);
+                setProducts(res.data);
                 setLoaded(true);
             })
             .catch(err => console.error(err));
-    },[product]);
+    },[products]);
     const removeFromDom = productId => {
-        setProduct(product.filter(product => product._id != productId));
+        setProducts(products.filter(product => product._id != productId));
     }
  
     return (
         <div>
            <Product/>
            <hr/>
-           {loaded && <ProductList product={product}  removeFromDom={removeFromDom}/>}
+           {loaded && <ProductList products={products}  removeFromDom={removeFromDom}/>}
         </div>
     )
 }
