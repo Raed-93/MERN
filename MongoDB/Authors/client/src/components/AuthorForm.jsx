@@ -17,7 +17,6 @@ export default () => {
     }
     return (
         <>
-        {/* <Link to={'/home'}>Home.</Link> */}
         <h3>Add a New Author: </h3>
         <form onSubmit={onSubmitHandler}>
             <label>Name: </label>
